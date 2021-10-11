@@ -1,4 +1,4 @@
-def pp(n):
+def patrat_perfect(n):
     '''pp nr este patrat perfect
     :param: n
     :return: 1 sau 0'''
@@ -8,9 +8,11 @@ def pp(n):
     return 0
 
 
-def testpp():
-    assert pp(4)==1
-    assert pp(3)==0
+def test_patrat_perfect():
+    assert patrat_perfect(4)==1
+    assert patrat_perfect(3)==0
+    assert patrat_perfect(16)==1
+    assert patrat_perfect(21)==0
 
 def get_perfect_squares(start,stop):
     '''adaugam in lista
@@ -18,7 +20,7 @@ def get_perfect_squares(start,stop):
     :return: list a doua lista'''
     list=[]
     for x in range(start,stop):
-        if pp(x)==1:
+        if patrat_perfect(x)==1:
             list.append(x)
     return list
 
@@ -84,6 +86,7 @@ def test_get_newton_sqrt():
 def main():
     test_get_newton_sqrt()
     test_goldbach()
+    test_patrat_perfect()
     while True:
         print('1. conjectura lui Goldbach')
         print('2. Calculul radicalului ')
