@@ -1,3 +1,28 @@
+def pp(n):
+    '''pp nr este patrat perfect
+    :param: n
+    :return: 1 sau 0'''
+    for i in range(1, n//2+1):
+        if n==i*i:
+            return 1
+    return 0
+
+
+def testpp():
+    assert pp(4)==1
+    assert pp(3)==0
+
+def get_perfect_squares(start,stop):
+    '''adaugam in lista
+    :param: start de unde incepem
+    :return: list a doua lista'''
+    list=[]
+    for x in range(start,stop):
+        if pp(x)==1:
+            list.append(x)
+    return list
+
+
 def is_prime(n):
     '''
     verifica danumarul dat este prim
@@ -62,7 +87,8 @@ def main():
     while True:
         print('1. conjectura lui Goldbach')
         print('2. Calculul radicalului ')
-        print('3. exit')
+        print('3. pb2')
+        print('4.Exit')
         optiune = (input('Alegeti optiunea  :'))
         if optiune == '1':
             nr = int(input('introduceti un nr par >=4 '))
@@ -76,6 +102,10 @@ def main():
             steps=int(input(' numarul de pasi: '))
             print(get_newton_sqrt(nr1, steps))
         elif optiune == '3':
+            elem1 = int(input(" capatul inferior "))
+            elem2 = int(input(" capatul superior "))
+            print(get_perfect_squares(elem1, elem2))
+        elif optiune == "4":
             break
         else:
             print('alege o alta optiune ')
